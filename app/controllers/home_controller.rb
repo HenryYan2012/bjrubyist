@@ -2,9 +2,9 @@ class HomeController < ApplicationController
   def index
     @users = User.all
     @title = "Home"
-    @event = Event.first
+    @events = Event.where("date > now()").order(:date)
   end
 
-  def join_us
+  def about
   end
 end

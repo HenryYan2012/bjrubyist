@@ -1,9 +1,9 @@
 Bjrubyist::Application.routes.draw do
   resources :projects
 
-  resources :events
-  resources :memberships, only: [:create, :destroy]
-
+  resources :events do
+    resources :memberships, only: [:create, :destroy]
+  end
 
   authenticated :user do
     root :to => 'home#index'
@@ -14,5 +14,5 @@ Bjrubyist::Application.routes.draw do
 
   match "/people"   => "home#people", as: :people
   #match "/projects" => "home#projects", as: :projects
-  match "/join-us"  => "home#join_us", as: :join_us
+  match "/about"  => "home#about", as: :about
 end

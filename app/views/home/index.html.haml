@@ -1,65 +1,28 @@
-.row.hero-unit
-  /
-    <haml:loud> image_tag 'logo_big.png', id: &quot;hero-ruby&quot;, class: &quot;span2&quot; </haml:loud>
-  #hero-text.span9
-    %h1 自由 & 分享
-    / %h1 Do it for no return!
 
-    %br
-    %p
-      Hi, All
-      %ul
-        北京Rubyists 推动Ruby/Rails社区的发展，推动社会的发展，让我们一同让世界更加美好。
-    %a.weibo-follow-button{"data-lang" => "en", "data-show-count" => "false", :href => "http://weibo.com/u/2751693901"} 关注 @北京Rubyist
-.row
-  .span4
-    %h2 Why?
-    %p
-      The Ruby and Rails worlds are known for their collaboration, and 北京Rubyist takes an active role. We focus on fun and collaborate to solve problems. We provide each other support as we take on new challenges in Ruby.
-  .span4
-    %h2 How?
-    %p
-      We also host larger, formal events on a semi-regular basis. We encourage everyone, from Ruby novice to expert, to join us to learn and contribute. We're excited to grow and support the Ruby and Rails communities!
-  .span4
-    %h2 Where?
-    %p
-      Join our #{link_to "mailing list", join_us_path}, follow us on
-      = succeed "," do
-        %a{:href => "http://weibo.com/u/2751693901"} 微博
-      and peruse or submit to our #{link_to "Beijing jobs board", join_us_path}.
-.row
-  #map.span12
-    #address.span4
-      %h1 Join 北京Rubyist
-      / Come hack with us! 北京市东直门国华投资大厦11层ThoughtWorks Office，地铁环线西南 出口直行50米即到. Everyone is welcome!
-      %table
-      -if @event
-        %tr
-          %td
-            %i.icon-time
-          %td
-            %h3
-              #{@event.date}
-              %br
-              %time 2:00p
-              to
-              %time 5:00p
-        %tr
-          %td
-            %i.icon-map-marker
-          %td
-            %address
-              %h3 ThoughtWorks
-              / 北京市东直门
-              / %br/
-              / 国华投资大厦11层
-              / %br/
-        -else
-        %tr
-          %td
-            %h4 暂无活动 ...
-    .span8
-      -# %iframe{:frameborder => "0", :height => "350", :marginheight => "0", :marginwidth => "0", :scrolling => "no", :src => "https://maps.google.com/maps?q=ThoughtWorks%E6%80%9D%E7%89%B9%E6%B2%83%E5%85%8B%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF%E5%8C%97%E4%BA%AC%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&hl=en&ie=UTF8&cid=6987603576348446125&gl=US&hq=ThoughtWorks%E6%80%9D%E7%89%B9%E6%B2%83%E5%85%8B%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF%E5%8C%97%E4%BA%AC%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&t=m&hnear=&iwloc=A&ll=39.939702,116.432934&spn=0.00997,0.017552&output=embed", :width => "425"}
-      -# %br/
-      -# %small
-      -#   %a{:href => "https://maps.google.com/maps?q=ThoughtWorks%E6%80%9D%E7%89%B9%E6%B2%83%E5%85%8B%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF%E5%8C%97%E4%BA%AC%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&hl=en&ie=UTF8&cid=6987603576348446125&gl=US&hq=ThoughtWorks%E6%80%9D%E7%89%B9%E6%B2%83%E5%85%8B%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF%E5%8C%97%E4%BA%AC%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&t=m&hnear=&iwloc=A&ll=39.939702,116.432934&spn=0.00997,0.017552&source=embed", :style => "color:#0000FF;text-align:left"} View Larger Map
+- content_for :header do
+  = render 'carousel'
+
+%h1#home_invitation Come on, join the party!
+
+#home_events.row-fluid.tabbable.tabs-right
+  %ul.nav.nav-tabs
+    - @events.each_with_index do |event, index|
+      %li{class: index == 0 && "active"}
+        = link_to "#{event.date} |  #{event.name}" , "#event_#{event.id}",
+        "data-toggle" => "tab"
+  .tab-content#events
+    - @events.each_with_index do |event, index|
+      %div{id: "event_#{event.id}", class: ["tab-pane", "event", index == 0 && "active"]}
+        %iframe{id: "map", frameborder: 0, width: 250, height: 250, marginheight: 0, marginwidth: 0, scrolling: "no", src: "https://maps.google.com/maps?q=ThoughtWorks%E6%80%9D%E7%89%B9%E6%B2%83%E5%85%8B%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF%E5%8C%97%E4%BA%AC%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&hl=en&ie=UTF8&cid=6987603576348446125&gl=US&hq=ThoughtWorks%E6%80%9D%E7%89%B9%E6%B2%83%E5%85%8B%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF%E5%8C%97%E4%BA%AC%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&t=m&hnear=&iwloc=A&ll=39.939702,116.432934&spn=0.00997,0.017552&output=embed", class: "pull-right"}
+        %h2= event.name
+        -# .join
+        -#   - if user_signed_in? and event.joined?(current_user)
+        -#     我已经参加
+        -#   - else
+        -#     = link_to "我要参加", event_memberships_path(event),
+        -#     method: :post, class: "btn btn-primary"
+        %p= event.date
+        %p= event.location
+
+
+        %p= markdown(event.description)

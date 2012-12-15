@@ -1,2 +1,3 @@
-= form_for(@event.memberships.find_by_member_id(current_user),html: { method: :delete }) do |f| 
-  = f.submit "退出", class: "btn btn-danger pull-right"
+- membership = @event.memberships.find_by_member_id(current_user)
+= link_to "退出", event_membership_path(@event, membership),
+method: :delete, class: "btn btn-danger pull-right"

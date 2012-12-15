@@ -1,0 +1,24 @@
+%nav.navbar.navbar-static-top
+  .navbar-inner
+    = link_to "Ruby on Rains", root_path, class: "brand"
+    %ul.nav.pull-right
+      %li
+        = link_to "About us", about_path
+      - if user_signed_in?
+        %li
+          = link_to "Events", events_path
+        %li
+          = link_to current_user.name, current_user
+        %li
+          = link_to 'Edit account', edit_user_registration_path
+        %li
+          = link_to 'Logout', destroy_user_session_path, :method=>'delete'
+        - if current_user.has_role? :admin
+          %li
+            = link_to 'Admin', users_path
+      - else
+        %li
+          = link_to 'Sign up', new_user_registration_path
+
+- if content_for? :header
+  %section#page_header= yield :header

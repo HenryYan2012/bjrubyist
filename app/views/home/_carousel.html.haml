@@ -1,0 +1,19 @@
+#home_carousel.carousel.slide
+  .carousel-inner
+    .active.item
+      = image_tag 'home_carousel_1.jpg'
+      .carousel-caption
+        %h4 What?
+        %p 我们组织北京地区Ruby社区的活动，通常是在雨中
+    .item
+      = image_tag 'home_carousel_2.jpg'
+      .carousel-caption
+        %h4 Where?
+        %p 哪里有雨，哪里就有我们
+    .item
+      = image_tag 'home_carousel_3.jpg'
+      .carousel-caption
+        %h4 Why?
+        %p 因为我们总能在雨中
+  = link_to raw("&lsaquo;"), "#home_carousel", class: "carousel-control left", "data-slide" => "prev"
+  = link_to raw("&rsaquo;"), "#home_carousel", class: "carousel-control right", "data-slide" => "next"

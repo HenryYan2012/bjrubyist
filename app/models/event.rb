@@ -5,8 +5,6 @@ class Event < ActiveRecord::Base
   has_many :memberships, :dependent => :destroy
   has_many :members, :through => :memberships
 
-  default_scope order("date desc")
-
   # def self.find
   #     find(params[:id])
   # end
