@@ -6,13 +6,13 @@ class Event < ActiveRecord::Base
   has_many :members, :through => :memberships
 
   # def self.find
-  # 	find(params[:id])
+  #     find(params[:id])
   # end
 
-	def joined?(member)
-		return false if member.nil?
-	  memberships.find_by_member_id(member.id)
-	end
+    def joined?(member)
+        return false if member.nil?
+      memberships.find_by_member_id(member.id)
+    end
 
   #def info
     #if name and location
