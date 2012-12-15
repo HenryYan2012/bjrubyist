@@ -27,7 +27,7 @@ gem "watu_table_builder", require: "table_builder"
 gem 'redcarpet'
 
 group :assets do
-  gem 'therubyracer'
+  # gem 'therubyracer'
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
