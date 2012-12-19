@@ -1,10 +1,7 @@
-
 - content_for :header do
   = render 'carousel'
 
-%h1#home_invitation Come on, join the party
-
-#home_events.row-fluid.tabbable.tabs-right
+#home_events.row-fluid.tabbable.tabs-left
   %ul.nav.nav-tabs
     - @events.each_with_index do |event, index|
       %li{class: index == 0 && "active"}
@@ -13,7 +10,7 @@
   .tab-content#events
     - @events.each_with_index do |event, index|
       %div{id: "event_#{event.id}", class: ["tab-pane", "event", index == 0 && "active"]}
-        %iframe{id: "map", frameborder: 0, width: 250, height: 250, marginheight: 0, marginwidth: 0, scrolling: "no", src: "https://maps.google.com/maps?q=ThoughtWorks%E6%80%9D%E7%89%B9%E6%B2%83%E5%85%8B%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF%E5%8C%97%E4%BA%AC%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&hl=en&ie=UTF8&cid=6987603576348446125&gl=US&hq=ThoughtWorks%E6%80%9D%E7%89%B9%E6%B2%83%E5%85%8B%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF%E5%8C%97%E4%BA%AC%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&t=m&hnear=&iwloc=A&ll=39.939702,116.432934&spn=0.00997,0.017552&output=embed", class: "pull-right"}
+        %iframe{id: "map", frameborder: 0, width: 250, height: 250, marginheight: 0, marginwidth: 0, scrolling: "no", src: "https://maps.google.com/maps?q=ThoughtWorks%E6%80%9D%E7%89%B9%E6%B2%83%E5%85%8B%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF%E5%8C%97%E4%BA%AC%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&hl=en&ie=UTF8&cid=6987603576348446125&gl=US&hq=ThoughtWorks%E6%80%9D%E7%89%B9%E6%B2%83%E5%85%8B%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF%E5%8C%97%E4%BA%AC%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&t=m&hnear=&iwloc=A&ll=39.939702,116.432934&spn=0.00997,0.017552&output=embed", class: "pull-left"}
         %h2= event.name
         -# .join
         -#   - if user_signed_in? and event.joined?(current_user)
@@ -23,6 +20,4 @@
         -#     method: :post, class: "btn btn-primary"
         %p= event.date
         %p= event.location
-
-
         %p= markdown(event.description)

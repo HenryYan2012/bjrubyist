@@ -1,4 +1,6 @@
 #home_carousel {
+  margin-bottom: 0;
+
   img {
     width: 100%;
     max-height: 600px;
@@ -20,23 +22,33 @@
       line-height: 2em;
     }
   }
+
+  @include box-shadow(rgba(#333, 0.8) 0px 10px 20px,
+                      rgba(#333, 0.4) 0px -5px 10px);
 }
 
+#home_events {
+  margin-top: 5em;
 
-#home_invitation {
-  text-align: center;
-  padding: 1em;
-  background: #ccc;
-  margin: 1em 0;
-}
+  ul.nav-tabs {
+    border: none;
 
-#events {
-  .event {
-    h2 {margin-bottom: 1em;}
+    li {
+      a {font-size: 1.5em;}
+      &.active a {
+        background: transparent;
+      }
+    }
   }
 
+  #events {
+    .event {
+      h2 {margin-bottom: 1em;}
+    }
+  }
 }
 
 #map {
   @include border-radius(50em);
+  margin: 0 5em;
 }

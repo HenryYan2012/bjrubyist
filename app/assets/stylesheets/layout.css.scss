@@ -1,5 +1,24 @@
-body > header {
-  nav.navbar {
-    margin: 0;
+body {
+  > header {
+    nav.navbar {
+      margin: 0;
+      .navbar-inner {
+        padding: 20px;
+        @include background(linear-gradient(#fff, #eee));
+        .brand {
+          color: #333;
+          text-shadow: none;
+        }
+        .nav > li > a {
+          color: #333;
+          text-shadow: none;
+        }
+      }
+    }
+  }
+
+  > section.container-fluid {
+    @include background(linear-gradient(#eee, #fff));
   }
 }
+
