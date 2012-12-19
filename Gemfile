@@ -33,6 +33,7 @@ group :assets do
   gem 'uglifier'
   gem 'compass_twitter_bootstrap'
   gem 'compass-rails'
+  gem 'turbo-sprockets-rails3'
 end
 
 group :test do
