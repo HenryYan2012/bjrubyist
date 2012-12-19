@@ -3,8 +3,6 @@ load 'deploy/assets'
 server "106.186.21.165", :web, :app, :db, primary: true
 
 set :application, "bjrubyist"
-set :rake, "bundle exec rake"
-
 set :user, "deployer"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
