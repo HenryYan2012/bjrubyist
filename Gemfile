@@ -1,4 +1,4 @@
-source 'http://ruby.taobao.org'
+source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2.9'
 
@@ -6,9 +6,9 @@ gem 'rails', '~> 3.2.9'
 gem 'mysql2'
 
 #user auths
-gem "devise", ">= 2.1.2"
-gem "cancan", ">= 1.6.8"
-gem "rolify", ">= 3.2.0"
+gem "devise"
+gem "cancan"
+gem "rolify"
 gem 'omniauth'
 gem 'omniauth-github'
 
@@ -18,8 +18,8 @@ gem 'jquery-rails'
 gem "haml-rails"
 
 #deploy
-gem 'thin'
 gem "capistrano"
+gem "unicorn"
 
 #calendar
 gem "watu_table_builder", require: "table_builder"
@@ -36,19 +36,20 @@ group :assets do
 end
 
 group :test do
-  gem "rspec-rails", ">= 2.11.0"
-  gem "email_spec", ">= 1.2.1"
-  gem "cucumber-rails", ">= 1.3.0"
-  gem "database_cleaner", ">= 0.9.1"
-  gem "launchy", ">= 2.1.2"
-  gem "capybara", ">= 1.1.2"
-  gem "factory_girl_rails", ">= 4.1.0"
+  gem "rspec-rails"
+  gem "email_spec"
+  gem "cucumber-rails"
+  gem "database_cleaner"
+  gem "launchy"
+  gem "capybara"
+  gem "factory_girl_rails"
   gem 'guard-spork'
   gem 'guard-rspec'
   gem 'guard-livereload'
 end
 
 group :development do
-  gem "quiet_assets", ">= 1.0.1"
-  gem "hub", ">= 1.10.2"
+  gem "quiet_assets"
+  gem "hub"
+  gem 'thin'
 end
