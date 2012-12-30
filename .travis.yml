@@ -1,0 +1,20 @@
+language: ruby
+rvm:
+  - 1.9.3
+
+before_script:
+  - "bundle exec rake db:migrate"
+  - "bundle exec rake db:test:prepare" 
+  # - "bundle exec rake db:create db:migrate"
+
+
+notifications:
+  email:
+    - kevin.wenyang@gmail.com
+    - sg552sg552@gmail.com
+    - jasl9187@hotmail.com
+    - lilu.life@gmail.com
+
+branches:
+  only:
+    - master
