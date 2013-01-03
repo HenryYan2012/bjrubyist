@@ -39,6 +39,7 @@
         background: transparent;
       }
     }
+
   }
 
   #events {
@@ -51,4 +52,8 @@
 #map {
   @include border-radius(50em);
   margin: 0 5em;
+
+  @media only screen and (max-width: 650px) {
+    margin: 0 1em;
+  }
 }
